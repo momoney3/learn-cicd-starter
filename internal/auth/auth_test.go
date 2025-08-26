@@ -24,12 +24,12 @@ import (
 // 	}
 // }
 
-func TestAut(t testing.T) {
+func TestAut(t *testing.T) {
 	headers := http.Header{}
 
 	_, err := GetAPIKey(headers)
 
 	if err != ErrNoAuthHeaderIncluded {
-		t.Error("expected ErrNoAuthHeaderIncluded, got  %v", err)
+		t.Errorf("expected ErrNoAuthHeaderIncluded, got  %v", err)
 	}
 }
