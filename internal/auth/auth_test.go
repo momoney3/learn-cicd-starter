@@ -1,20 +1,35 @@
 package auth
 
 import (
-	"reflect"
+	"net/http"
 	"testing"
 )
 
-func TestAut(t *testing.T) {
-	test := map[string]struct {
-		name string
-		got  string
-		want string
-	}{
-		"simple": {}
-	}
+// func TestAut(t *testing.T) {
+// 	test := map[string]struct {
+// 		input string
+// 		want  string
+// 	}{
+// 		"simple": {"input": "123456", nil, "Want": "12345"},
+// 	}
+//
+// 	for name, tc := range test {
+// 		t.Run(name, func(t *testing.T) {
+// 			got := GetAPIKey(tc.input)
+// 			diff := cmp.Diff(tc.want, got)
+// 			if diff != "" {
+// 				t.Fatal(diff)
+// 			}
+// 		})
+// 	}
+// }
 
-	if !reflect.DeepEqual(want, got) {
-		t.Fatalf("expected: %v got: %v", got, want)
+func TestAut(t testing.T) {
+	headers := http.Header{}
+
+	_, err := GetAPIKey(headers)
+
+	if err != ErrNoAuthHeaderIncluded {
+		t.Error("expected ErrNoAuthHeaderIncluded, got  %v", err)
 	}
 }
