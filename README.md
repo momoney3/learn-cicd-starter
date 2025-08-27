@@ -1,6 +1,4 @@
-<https://github.com/momoney3/learn-cicd-starter/actions/workflows/ci.yml/badge.svg>
-
-![Scrutinizer coverage (GitHub/Bitbucket)](https://img.shields.io/scrutinizer/coverage/:vcs/momoney3/learn-cicd-starter)
+![Test](https://github.com/momoney3/learn-cicd-starter/blob/addtests/.github/workflows/ci.yml)
 
 # learn-cicd-starter (bob)
 
