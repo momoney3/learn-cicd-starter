@@ -1,4 +1,4 @@
-![Test](https://github.com/momoney3/learn-cicd-starter/blob/addtests/.github/workflows/ci.yml)
+![Test](https://github.com/momoney3/learn-cicd-starter/actions/workflows/ci.yml/badge.svg)
 
 # learn-cicd-starter (bob)
 
