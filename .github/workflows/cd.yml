@@ -21,5 +21,8 @@ jobs:
       - name: Test scripts
         run: echo "it did run brow main"
 
+      - name: Clean Go module cache
+        run: rm -rf ~/go/pkg/mod
+
       # - name: Build scripts
       #   run: chmod +x ./scripts/buildprod.sh && ./scripts/buildprod.sh
