@@ -22,8 +22,8 @@ jobs:
         run: go clean -modcache
 
       - name: Test scripts
-        run: echo "It did run brow main"
-
+        run: echo "It did run brow new test"
+        
       - name: Clean Go module cache
         run: rm -rf ~/go/pkg/mod
 
