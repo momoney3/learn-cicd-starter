@@ -18,14 +18,5 @@ jobs:
         with:
           go-version: "1.23.0"
 
-      - name: Clean modcache
-        run: go clean -modcache
-
-      - name: Test scripts
-        run: echo "It did run brow new test"
-        
-      - name: Clean Go module cache
-        run: rm -rf ~/go/pkg/mod
-
       - name: Build scripts
-        run: chmod +x ./scripts/buildprod.sh && ./scripts/buildprod.sh
+        run: ./scripts/buildprod.sh
