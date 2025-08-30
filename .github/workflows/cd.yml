@@ -18,6 +18,9 @@ jobs:
         with:
           go-version: "1.23.0"
 
+      - name: Clean modcache
+        run: go clean -modcache
+
       - name: Test scripts
         run: echo "it did run brow main"
 
