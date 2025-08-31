@@ -24,6 +24,7 @@ jobs:
   gcloud:
     name: Gcloud
     runs-on: ubuntu-latest
+    needs: deploy
 
     steps:
       - id: "auth"
