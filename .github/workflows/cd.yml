@@ -21,6 +21,7 @@ jobs:
       - name: Build scripts
         run: ./scripts/buildprod.sh
 
+        ## test
   gcloud:
     name: Gcloud
     runs-on: ubuntu-latest
