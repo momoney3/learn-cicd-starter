@@ -38,5 +38,8 @@ jobs:
       - name: "Use gcloud CLI"
         run: "gcloud info"
 
+      - name: "test file"
+        run: pwd && ls -la
+
       - name: "Build gcp"
         run: gcloud builds submit --tag us-central1-docker.pkg.dev/acoustic-arch-470615-q8/notely-ar-repo .
