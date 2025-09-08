@@ -39,7 +39,8 @@ jobs:
         run: gcloud builds submit --tag us-central1-docker.pkg.dev/acoustic-arch-470615-q8/notely-ar-repo/notely:V$VERSION .
 
       - name: migrations
-        run: ./scripts/migrateup.sh
+        run:  chmod +x scripts/migrateup.sh && ./scripts/migrateup.sh
+
 
       - name: Deploy to Cloud Run
         run: gcloud run deploy notely --image us-central1-docker.pkg.dev/acoustic-arch-470615-q8/notely-ar-repo/notely:V$VERSION --region us-central1 --allow-unauthenticated --project acoustic-arch-470615-q8 --max-instances=4
