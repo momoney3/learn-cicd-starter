@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      AUTHTOKEN: ${{ secrets.AUTHTOKEN }}
+      
+        ##AUTHTOKEN: ${{ secrets.AUTHTOKEN }}
 
 
     steps:
