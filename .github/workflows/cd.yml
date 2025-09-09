@@ -9,12 +9,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
       
-        ##AUTHTOKEN: ${{ secrets.AUTHTOKEN }}
-
-
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -45,7 +40,9 @@ jobs:
         run: go install github.com/pressly/goose/v3/cmd/goose@latest 
 
       - name: migrations
-        run:  chmod +x scripts/migrateup.sh && ./scripts/migrateup.sh
-
+        run:  ./scripts/migrateup.sh
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    
       - name: Deploy to Cloud Run
         run: gcloud run deploy notely --image us-central1-docker.pkg.dev/acoustic-arch-470615-q8/notely-ar-repo/notely:V$VERSION --region us-central1 --allow-unauthenticated --project acoustic-arch-470615-q8 --max-instances=4
