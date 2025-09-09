@@ -40,7 +40,7 @@ jobs:
         run: go install github.com/pressly/goose/v3/cmd/goose@latest 
 
       - name: migrations
-        run: cd sql/schema && goose turso $DATABASE_URL up
+        run: cd sql/schema && goose turso libsql://notely-db-getbread123.aws-eu-west-1.turso.io?eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NTc0NDkwMzYsImlkIjoiN2Q5NzVhNjctZDBhZC00NTkwLTg4ZDgtN2Q2OGNkMTc4ZGE2IiwicmlkIjoiYjliZjg0MDktOGU4Zi00NDYzLTgyNGItOGU5NThlYWUxYTNmIn0.mNoO-ZyQSfD1QM2MfsyeFOHGX4I6UCEx2ocVfnVy6QEHHOxZoKZ47_hLqVGT-n1L9FZgCXZxXUOXXnlSyKjOCA up
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
     
