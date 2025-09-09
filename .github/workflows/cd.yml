@@ -40,7 +40,7 @@ jobs:
         run: go install github.com/pressly/goose/v3/cmd/goose@latest 
 
       - name: migrations
-        run:  ./scripts/migrateup.sh
+        run: cd sql/schema goose turso  $DATABASE_URL up
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
     
