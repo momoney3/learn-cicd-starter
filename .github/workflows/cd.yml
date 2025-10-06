@@ -5,7 +5,6 @@ on:
     branches: [main]
 
 jobs:
-
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
@@ -39,11 +38,11 @@ jobs:
       - name: Build gcp
         run: gcloud builds submit --tag us-central1-docker.pkg.dev/acoustic-arch-470615-q8/notely-ar-repo/notely:V$VERSION .
 
-      - name: goose
-        run: go install github.com/pressly/goose/v3/cmd/goose@latest 
+      - name: Install goose
+        run: go install github.com/pressly/goose/v3/cmd/goose@latest
 
-      - name: migrations
-        run:  chmod +x scripts/migrateup.sh && ./scripts/migrateup.sh
+      - name: Run migrations
+        run: ./scripts/migrateup.sh
 
       - name: Deploy to Cloud Run
         run: gcloud run deploy notely --image us-central1-docker.pkg.dev/acoustic-arch-470615-q8/notely-ar-repo/notely:V$VERSION --region us-central1 --allow-unauthenticated --project acoustic-arch-470615-q8 --max-instances=4
