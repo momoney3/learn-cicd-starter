@@ -1,5 +1,5 @@
 name: cd
-# test
+# teskt
 on:
   push:
     branches: [main]
